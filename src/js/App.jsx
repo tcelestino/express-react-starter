@@ -1,9 +1,10 @@
-var mountNode = document.body;
+var mountNode = document.querySelector('.content');
 
 var AppView = React.createClass({
   render: function () {
     return (
-      <div className='container'>
+      <div>
+        <h2>Hello, world!</h2>
       </div>
     );
   }
