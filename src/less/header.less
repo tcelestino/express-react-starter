@@ -1,0 +1,51 @@
+header {
+  overflow: hidden;
+}
+
+h2 {
+  color: @header-color;
+  position: relative;
+}
+
+.author-name-wrapper {
+  // border: 1px solid #f00;
+  position: relative;
+  margin-left: 5px;
+
+  .author-name {
+    z-index: 999998;
+    position: absolute;
+    transition: all .5s ease-in;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      color: @header-color-highlight;
+    }
+  }
+
+  .new-name {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    border: 0;
+    background: transparent;
+    color: @header-color-highlight;
+    padding: 0;
+    display: inline;
+    width: 300px;
+    // border: 1px solid #0f0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.notifications {
+  position: absolute;
+  display: block;
+  right: 35px;
+  top: 20px;
+}

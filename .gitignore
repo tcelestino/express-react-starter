@@ -1,0 +1,5 @@
+node_modules
+src/bower_components
+src/dist/
+public/dist
+public/sounds

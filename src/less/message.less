@@ -1,0 +1,60 @@
+.message {
+  background: @message-bg;
+  padding: 10px 10px 15px;
+  color: @message-color;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  word-wrap: break-word;
+  margin-right: 0;
+  margin-left: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .message-author {
+    font-size: 1.3em;
+  }
+
+  .message-body {
+    padding: 5px 0 0 10px;
+  }
+
+  .message-date {
+    right: 5px;
+    top: 15px;
+    position: absolute;
+    font-size: .75em;
+    margin-right: 10px;
+    color: @message-info-color;
+  }
+
+  .implying {
+    color: #BDE090;
+  }
+}
+
+.message-me {
+  background-color: darken(@message-bg, 5%);
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+.message-lu {
+  background-color: #5E0063;
+  color: #FA9CFF;
+  span {
+    color: #FA9CFF;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .message {
+    padding: 5px 5px 10px;
+
+    .message-author {
+      font-size: 1.1em;
+    }
+  }
+}

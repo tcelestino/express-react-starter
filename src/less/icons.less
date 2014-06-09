@@ -1,0 +1,46 @@
+@pad: 20px;
+@size: 27px;
+
+.horse-icon {
+  font-size: 2em;
+  display: block;
+  font-weight: 900;
+  display: inline-block;
+  position: relative;
+  width: @size;
+  height: @size;
+  line-height: @size - 2;
+  border-radius: 3px;
+  background-color: rgba(100, 100, 100, .1);
+  margin-right: 10px;
+  transition: all .2s linear;
+  opacity: .7;
+  cursor: pointer;
+  text-align: center;
+  color: #777;
+
+  &:hover, &.horse-icon-hover {
+    opacity: 1;
+    background-color: rgba(100, 100, 100, .3);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .glyphicon {
+    font-size: .8em;
+  }
+}
+
+.horse-icon-err {
+  color: rgba(255, 0, 0, .5);
+}
+
+.horse-icon-primary {
+  color: #66BFFF;
+}
+
+.horse-icon-update {
+  // color: rgba(255, 0, 0, .5);
+}

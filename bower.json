@@ -1,0 +1,25 @@
+{
+  "name": "horse-chat",
+  "version": "0.0.0",
+  "authors": [
+    "Guilherme Nagatomo <guilherme.nagatomo@tivit.com.br>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "moment": "~2.6.0",
+    "jquery": "~2.1.1",
+    "react": "~0.10.0",
+    "lodash": "~2.4.1",
+    "nanoscroller": "~0.8.0"
+  }
+}
