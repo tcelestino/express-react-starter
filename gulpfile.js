@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     css = {
       concat: require('gulp-concat-css'),
