@@ -1,30 +1,20 @@
 var gulp = require('gulp')
-  , wrap = require('gulp-wrap')
-  , less = require('gulp-less')
-  , css = {
-      concat: require('gulp-concat-css')
-    , min: require('gulp-cssmin')
-    }
-  , order = require('gulp-order')
-  , clean = require('gulp-clean')
-  , jshint = require('gulp-jshint')
-  , concat = require('gulp-concat')
-  , uglify = require('gulp-uglify')
-  , react = require('gulp-react')
-  , rename = require('gulp-rename')
-  , autoprefixer = require('gulp-autoprefixer')
-  , livereload = require('gulp-livereload');
+    plugins = require('gulp-load-plugins')(),
+    css = {
+      concat: require('gulp-concat-css'),
+      min: require('gulp-cssmin')
+    };
 
 gulp.task('clean', function () {
   return gulp.src(['src/dist', 'public/dist'], { read: false })
-    .pipe(clean());
+    .pipe(plugins.clean());
 });
 
 /* < DEV TASKS */
 
 gulp.task('css-dev', function () {
   return gulp.src(['src/less/*.less'])
-    .pipe(less({
+    .pipe(plugins.less({
       sourceMap: true
     }))
     // .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
@@ -34,9 +24,9 @@ gulp.task('css-dev', function () {
 
 gulp.task('js-dev', function () {
   return gulp.src('src/js/App.jsx')
-    .pipe(react())
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
+    .pipe(plugins.react())
+    .pipe(plugins.jshint('.jshintrc'))
+    .pipe(plugins.jshint.reporter('default'))
     .pipe(gulp.dest('src/dist/js'));
 });
 
@@ -46,7 +36,7 @@ gulp.task('dev', function () {
 });
 
 gulp.task('watch-dev', function () {
-  var server = livereload();
+  var server = plugins.livereload();
 
   gulp.start('dev');
 
@@ -68,7 +58,7 @@ gulp.task('css', ['horse-chat-css', 'nanoscroller-css'], function () {
     , 'src/dist/vendor/*.css'
     , 'src/dist/css/*.css'
     ])
-    .pipe(less())
+    .pipe(plugins.less())
     .pipe(css.concat('main.css'))
     .pipe(css.min())
     .pipe(gulp.dest('public/dist'));
@@ -80,14 +70,14 @@ gulp.task('js', function () {
     , 'src/js/*.js'
     , 'src/dist/**/*.js'
     ])
-    .pipe(order([
+    .pipe(plugins.order([
         'src/bower_components/*'
       , 'src/js/*'
       , 'src/dist/*'
     ]))
-    .pipe(concat('main.js'))
-    .pipe(wrap('(function(window, document, undefined){\n<%= contents %>\n})(window, document);'))
-    .pipe(uglify({
+    .pipe(plugins.concat('main.js'))
+    .pipe(plugins.wrap('(function(window, document, undefined){\n<%= contents %>\n})(window, document);'))
+    .pipe(plugins.uglify({
       wrap: true,
       unused: true,
       join_vars: true,
